@@ -491,8 +491,11 @@ class RESTRequest
     }
 
 
-    public function sendBinary($url, $expectedCodes = array(200), $body, $contentType, $contentDisposition, $contentDescription, $verb = "POST")
+    public function sendBinary($url, $expectedCodes, $body, $contentType, $contentDisposition, $contentDescription, $verb = "POST")
     {
+        if (empty($expectedCodes)) {
+            $expectedCodes = array(200);
+        }
         $this->flush();
         $this->setUrl($url);
         $this->setVerb($verb . '_BIN');
