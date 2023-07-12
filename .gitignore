@@ -2,3 +2,4 @@
 scrap
 /vendor/
 composer.lock
+/nbproject/private/
